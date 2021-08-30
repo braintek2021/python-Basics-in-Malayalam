@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec  2 09:34:02 2020
+
+@author: hp
+"""
+
+#Per litre price
+Milk_price=50
+#print(type(Milk_price))
+curd_price=30
+
+while True:
+    print ("Welcome to the Python Vending Machine.")
+    # Asking User on type of product.
+    item = input("Would you like to buy Milk,Curd or Both: " )
+    item=item.lower()
+    volume_qty=[0.5,1,5]
+    Milk_Price_list=[25,50,250]
+    Curd_Price_list= [15,30,150]
+    milk_cost=0
+    curd_cost=0
+    if item == 'milk': 
+        cus_choice=input("Would you have any choice on packets. Available packets are for 0.5L, 1L,5L. plase enter yes/no: " )
+        if cus_choice=='yes':
+            selection = input((("Qty of 0.5L pack: "), ("Qty of 1L pack: "), ("Qty of 5L pack: ")))
+            for i in range(0,len(Milk_Price_list)):
+                price=int(selection[i])*int(Milk_Price_list[i])
+                milk_cost=milk_cost+price
+        else:
+            milk_qty = int(input("Kindly enter the quantity in liters: "))
+            milk_cost = milk_qty*Milk_price
+        print("Kindly enter Rupees "+str(milk_cost)+" below" )
+        cus_paid=int(input("Kindly enter the amount to be paid: "))
+        if cus_paid == milk_cost:
+            print("Thank you, please collect " + item+".Please visit again")
+        else:
+            print("Wrong entry,Please check")
+    elif item == 'curd': 
+        cus_choice=input("Would you have any choice on packets. Available packets are for 0.5L, 1L,5L. plase enter yes/no: " )
+        if cus_choice=='yes':
+            selection = input((("Qty of 0.5L pack: "), ("Qty of 1L pack: "), ("Qty of 5L pack: ")))
+            for i in range(0,len(Milk_Price_list)):
+                price=int(selection[i])*int(Curd_Price_list[i])
+                curd_cost=curd_cost+price
+        else:
+            curd_qty = int(input("Kindly enter the quantity in liters: "))
+            curd_cost = curd_qty*curd_price
+        print("Kindly enter Rupees "+str(curd_cost)+" below" )
+        cus_paid=int(input("Kindly enter the amount to be paid: "))
+        if cus_paid == curd_cost:
+            print("Thank you, please collect " + item+".Please visit again")
+        else:
+            print("Wrong entry,Please check")
+        
